@@ -1,14 +1,14 @@
 @import url('./reset.css');
 @import url('./base.css');
 
-.search-form {
+.form {
   display: flex;
   gap: 8px;
   width: 371px;
   margin: 0 auto 32px;
 }
 
-.search-form input {
+.form input {
   border: 1px solid #bfbebe;
   border-radius: 4px;
   width: 272px;
@@ -19,26 +19,26 @@
   color: #2e2f42;
 }
 
-.search-form input:hover {
+.form input:hover {
   border: 1px solid #5d5959;
 }
 
-.search-form input::placeholder {
+.form input::placeholder {
   color: transparent;
  font-weight: 400;
   font-size: 16px;
   line-height: 1,5;
   letter-spacing: 0.04em;
 }
-.search-form input:focus::placeholder {
+.form input:focus::placeholder {
   color: #808080;
 }
 
-.search-form input:focus-within {
+.form input:focus-within {
   border: 1px solid #14192a;
 }
 
-.search-form > button {
+.form > button {
   border-radius: 8px;
   padding: 8px 16px;
   width: 95px;
@@ -51,7 +51,7 @@
   color: #fff;
 }
 
-.search-form > button:hover {
+.form > button:hover {
   background-color: #142254;
 }
 

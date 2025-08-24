@@ -5,7 +5,7 @@ import getImagesByQuery from './js/pixabay-api';
 import * as rendered from './js/render-functions';
 
 const perPage = 15; 
-const form = document.querySelector(".search-form");
+const form = document.querySelector(".form");
 const loadMoreBtn = document.querySelector(".js-load-more");
 
 let meaning = "";
