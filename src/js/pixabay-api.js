@@ -1,9 +1,11 @@
 import  axios from "axios";
+axios.defaults.baseURL = 'https://pixabay.com';
 
 export default async function getImagesByQuery(query, page) {
+
   const reply = await axios.get('/api/', {
     params: {
-      key: '51453441-8ba936d16adf232cd1ca4d1fd',
+      key: '41896213-148f054eadfc6d224b6c8f8ef',
       q: query,
       image_type: 'photo',
       orientation: 'horizontal',
