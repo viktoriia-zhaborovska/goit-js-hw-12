@@ -67,9 +67,17 @@ loadMoreBtn.addEventListener("click", async () => {
   try {
     const reply = await getImagesByQuery(meaning, currentPage);
     rendered.hideLoader();
+
+    if (reply.hits.length === 0) {
+      rendered.hideLoadMoreButton();
+      return iziToast.info({
+        message: "We're sorry, but you've reached the end of search results.",
+        position: "bottomCenter"
+      });
+    }
+
     rendered.createGallery(reply.hits);
 
-   
     const { height: cardHeight } = document
       .querySelector(".gallery")
       .firstElementChild.getBoundingClientRect();
@@ -79,7 +87,7 @@ loadMoreBtn.addEventListener("click", async () => {
       behavior: "smooth",
     });
 
-  if (currentPage * perPage >= totalHits) {
+    if (currentPage * perPage >= totalHits) {
       rendered.hideLoadMoreButton();
       iziToast.info({
         message: "We're sorry, but you've reached the end of search results.",
