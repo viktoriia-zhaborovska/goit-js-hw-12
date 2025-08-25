@@ -48,15 +48,20 @@ form.addEventListener("submit", async e => {
    
     if (totalHits > perPage) {
       rendered.showLoadMoreButton();
-    } else {
-      iziToast.info({
+    } else if (totalHits === 1) {
+      iziToast.error({
         message: "We're sorry, but you've reached the end of search results.",
         position: "bottomCenter"
       });
     }
-  } catch (error) {
-    console.log(error);
+  } catch (error) { iziToast.error({
+      backgroundColor: '#380505ff',
+      message: `${error}`,
+      messageColor: '#fff',
+    });
+  }  finally {
     rendered.hideLoader();
+    form.reset();
   }
 });
 
@@ -96,6 +101,12 @@ loadMoreBtn.addEventListener("click", async () => {
     }
   } catch (error) {
     console.log(error);
+    iziToast.error({
+      backgroundColor: '#380505ff',
+      message: `${error}`,
+      messageColor: '#fff',
+    });
+  } finally {
     rendered.hideLoader();
   }
 });
